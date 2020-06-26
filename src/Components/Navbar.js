@@ -1,31 +1,41 @@
 import React from 'react'
 import logo from '../logo.png'
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+import Home from '../Pages/Home'
+import Products from '../Pages/Products'
+import Cart from '../Pages/Cart'
 
 function Navbar() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a className="navbar-brand" href="#">
-                <img src={logo} style={{ width: '40px', height: '40px' }} />
-            </a>
-            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
+        <BrowserRouter>
+            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a className="navbar-brand" href="#">
+                    <img src={logo} style={{ width: '40px', height: '40px' }} />
+                </a>
+                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
 
-            <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav ml-auto">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="#">Home <span className="sr-only">(current)</span></a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Products</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#">Cart</a>
-                    </li>
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav ml-auto">
+                        <li className="nav-item active">
+                            <Link className="nav-link" to='/'>Home</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/Products'>Products</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to='/Cart'>Cart</Link>
+                        </li>
 
-                </ul>
-            </div>
-        </nav>
+                    </ul>
+                </div>
+            </nav>
+
+            <Route path='/' exact component={Home} />
+            <Route path='/Products' component={Products} />
+            <Route path='/Cart' component={Cart} />
+        </BrowserRouter>
     )
 }
 
