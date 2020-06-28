@@ -1,10 +1,11 @@
 import React from 'react'
 import logo from '../logo.png'
-import { BrowserRouter, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 import Home from '../Pages/Home'
 import Products from '../Pages/Products'
 import Product from '../Pages/Product'
 import Cart from '../Pages/Cart'
+import NotFounded from '../Pages/NotFounded'
 
 function Navbar() {
     return (
@@ -35,10 +36,13 @@ function Navbar() {
                 </div>
             </nav>
 
-            <Route path='/' exact component={Home} />
-            <Route path='/Products' component={Products} exact />
-            <Route path='/Products/:id' component={Product} />
-            <Route path='/Cart' component={Cart} />
+            <Switch>
+                <Route path='/' exact component={Home} />
+                <Route path='/Products' component={Products} exact />
+                <Route path='/Products/:id' component={Product} />
+                <Route path='/Cart' component={Cart} />
+                <Route path='/:NotFound' component={NotFounded} />
+            </Switch>
         </BrowserRouter>
     )
 }
