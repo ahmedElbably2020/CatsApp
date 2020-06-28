@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import ProductItem from '../Components/ProductItem'
-import getAll from '../Api/Products'
+import { getAll } from '../Api/Products'
 
 function Products() {
 
