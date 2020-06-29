@@ -6,6 +6,8 @@ import Products from '../Pages/Products'
 import Product from '../Pages/Product'
 import Cart from '../Pages/Cart'
 import NotFounded from '../Pages/NotFounded'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
 
 function Navbar() {
     return (
@@ -29,6 +31,10 @@ function Navbar() {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to='/Cart'>Cart</Link>
+                            </li>
+                            <li className='nav-item shopingIcon position-relative text-white d-flex align-items-center'>
+                                <span className='position-absolute'>0</span>
+                                <FontAwesomeIcon icon={faShoppingCart} />
                             </li>
 
                         </ul>

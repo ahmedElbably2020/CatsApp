@@ -24,3 +24,16 @@ button{
     color: yellow;
     background-color: #222;
 }
+
+.shopingIcon span{
+    top: -3px;
+    right: -13px;
+    background-color: yellow;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    color: #222;
+    text-align: center;
+    line-height: 18px;
+    font-size: .8em;
+}
