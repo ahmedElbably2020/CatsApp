@@ -1,35 +1,41 @@
 import React, { useState, useEffect } from 'react'
 import CartItem from '../Components/CartItem'
-import { getAll } from '../Api/Products'
+import { connect } from 'react-redux'
 
-function Products() {
+function Products(props) {
 
     const [products, setProducts] = useState([])
 
     useEffect(() => {
-        getAll().then(data => {
-            setProducts(data)
-        })
+        setProducts(props.allCart)
 
     }, [])
-    console.log(products)
+
+
+
     return (
+
         <div className='container mt-4'>
             <h1>Cart</h1>
             <div className='row'>
                 {
                     products.map(cat => {
-                        return <div className='col-3' key={cat.id}>
-                            <CartItem img={cat.image} name={cat.name} price={cat.price} />
+                        return <div className='col-3' key={cat.product.id}>
+                            <CartItem img={cat.product.image} name={cat.product.name} quantity={cat.quantity} price={cat.product.price} total={cat.product.price * cat.quantity} />
                         </div>
                     })
                 }
-
-                <h3>Total : 3000$</h3>
-                <button className='btn btn-success w-100 my-3'>Pay</button>
             </div>
+            <h3>Total : {props.totalPrice}$</h3>
+            <button className='btn btn-success w-100 my-3'>Pay</button>
         </div>
     )
 }
 
-export default Products
+const mapStateToProps = state => {
+    return {
+        allCart: state.cart,
+        totalPrice: state.cart.reduce((acc, item) => acc += item.product.price * item.quantity, 0)
+    }
+}
+export default connect(mapStateToProps)(Products)
