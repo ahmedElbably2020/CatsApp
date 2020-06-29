@@ -8,8 +8,10 @@ import Cart from '../Pages/Cart'
 import NotFounded from '../Pages/NotFounded'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { connect } from 'react-redux'
 
-function Navbar() {
+function Navbar(props) {
+
     return (
         <BrowserRouter>
             <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -34,7 +36,7 @@ function Navbar() {
                             </li>
                             <li className='nav-item shopingIcon position-relative d-flex align-items-center'>
                                 <Link to='/Cart'>
-                                    <span className='position-absolute'>0</span>
+                                    <span className='position-absolute'>{props.totalQuantity}</span>
                                     <FontAwesomeIcon icon={faShoppingCart} className='text-white' />
                                 </Link>
                             </li>
@@ -55,4 +57,10 @@ function Navbar() {
     )
 }
 
-export default Navbar
+
+const mapStateToProps = state => {
+    return {
+        totalQuantity: state.cart.reduce((acc, item) => acc += item.quantity, 0)
+    }
+}
+export default connect(mapStateToProps)(Navbar)
