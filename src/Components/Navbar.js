@@ -32,9 +32,11 @@ function Navbar() {
                             <li className="nav-item">
                                 <Link className="nav-link" to='/Cart'>Cart</Link>
                             </li>
-                            <li className='nav-item shopingIcon position-relative text-white d-flex align-items-center'>
-                                <span className='position-absolute'>0</span>
-                                <FontAwesomeIcon icon={faShoppingCart} />
+                            <li className='nav-item shopingIcon position-relative d-flex align-items-center'>
+                                <Link to='/Cart'>
+                                    <span className='position-absolute'>0</span>
+                                    <FontAwesomeIcon icon={faShoppingCart} className='text-white' />
+                                </Link>
                             </li>
 
                         </ul>

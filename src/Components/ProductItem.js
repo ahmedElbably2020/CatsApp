@@ -1,5 +1,4 @@
 import React from 'react'
-import catImg from '../cat.jpg'
 function ProductItem(props) {
     const { img, name, price } = props
     return (
