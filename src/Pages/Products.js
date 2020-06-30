@@ -12,7 +12,6 @@ function Products() {
         })
 
     }, [])
-    console.log(products)
     return (
         <div className='container mt-4'>
             <h1>Products</h1>

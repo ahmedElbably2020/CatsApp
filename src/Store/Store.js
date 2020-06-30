@@ -8,6 +8,6 @@ const initialValues = {
 }
 
 
-const store = createStore(Reducer, initialValues)
+const store = createStore(Reducer, initialValues, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__())
 
 export default store
