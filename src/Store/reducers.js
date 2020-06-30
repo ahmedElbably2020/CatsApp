@@ -1,5 +1,4 @@
-import { ADD_TO_CART } from './actionTypes'
-import { REMOVE_FROM_CART } from './actionTypes'
+import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from './actionTypes'
 
 
 export default function Reducer(state, action) {
@@ -20,6 +19,13 @@ export default function Reducer(state, action) {
             const index = action.index
             const newState = { ...state }
             newState.cart.splice(index, 1)
+            return newState
+        }
+
+
+        case CLEAR_CART: {
+            const newState = { ...state }
+            newState.cart = []
             return newState
         }
 

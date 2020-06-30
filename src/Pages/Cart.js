@@ -1,24 +1,22 @@
 import React, { useState, useEffect } from 'react'
 import CartItem from '../Components/CartItem'
 import { connect } from 'react-redux'
-
+import { clear_cart } from '../Store/actions'
 function Products(props) {
 
-    const [products, setProducts] = useState([])
-    const cartLength = products.length
+    const { allCart, totalPrice } = props
 
-    useEffect(() => {
-        setProducts(props.allCart)
-    }, [])
-
+    const clearCart = () => {
+        props.clearCart()
+    }
 
     return (
 
         <div className='container mt-4'>
             <h1>Cart</h1>
             <div className='row'>
-                {cartLength === 0 ? <div className='badge badge-danger w-75 mx-auto p-3'>Empty Cart</div> : (
-                    products.map((cat, index) => {
+                {allCart.length === 0 ? <div className='badge badge-danger w-75 mx-auto p-3'>Empty Cart</div> : (
+                    allCart.map((cat, index) => {
                         return <div className='col-3' key={cat.product.id}>
                             <CartItem id={index} img={cat.product.image} name={cat.product.name} quantity={cat.quantity} price={cat.product.price} total={cat.product.price * cat.quantity} />
                         </div>
@@ -27,10 +25,10 @@ function Products(props) {
 
             </div>
             {
-                cartLength > 0 ? (
+                allCart.length > 0 ? (
                     <div>
-                        <h3>Total : {props.totalPrice}$</h3>
-                        <button className='btn btn-success w-100 my-3'>Pay</button>
+                        <h3>Total : {totalPrice}$</h3>
+                        <button className='btn btn-success w-100 my-3' onClick={() => clearCart()}>Pay</button>
                     </div>
                 ) : null
             }
@@ -45,4 +43,12 @@ const mapStateToProps = state => {
         totalPrice: state.cart.reduce((acc, item) => acc += item.product.price * item.quantity, 0)
     }
 }
-export default connect(mapStateToProps)(Products)
+
+const mapDispatchToProps = dispatch => {
+    return {
+        clearCart: () => dispatch(clear_cart())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Products)
