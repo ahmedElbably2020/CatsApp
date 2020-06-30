@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import CartItem from '../Components/CartItem'
 import { connect } from 'react-redux'
 import { clear_cart } from '../Store/actions'

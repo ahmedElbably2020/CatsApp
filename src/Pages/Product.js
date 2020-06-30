@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react'
 import { getById } from '../Api/Products'
 import { connect } from 'react-redux'
 import { add_to_cart } from '../Store/actions'
-import { ADD_TO_CART } from '../Store/actionTypes'
 
 function Product(props) {
 
     const [product, setProduct] = useState({})
     const [quantity, setQuantity] = useState(0)
+    const [quantityError, setQuantityError] = useState(false)
 
     useEffect(() => {
         const productId = props.match.params.id
@@ -22,7 +22,12 @@ function Product(props) {
     }
 
     let addToCart = (product) => {
-        props.add_to_cart(product, quantity)
+        if (+quantity !== 0) {
+            props.add_to_cart(product, quantity)
+            setQuantityError(false)
+        } else {
+            setQuantityError(true)
+        }
     }
     return (
 
@@ -44,6 +49,9 @@ function Product(props) {
                             )
                         }
                     </div>
+                    {
+                        quantityError ? <div className='badge badge-danger w-100 p-3 mt-3'>Please Enter Quantity</div> : null
+                    }
                     <button className='btn mt-4 text-white' onClick={() => addToCart(product)}>Add To Cart</button>
                 </div>
             </div>
