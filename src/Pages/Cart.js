@@ -19,9 +19,9 @@ function Products(props) {
             <h1>Cart</h1>
             <div className='row'>
                 {
-                    products.map(cat => {
+                    products.map((cat, index) => {
                         return <div className='col-3' key={cat.product.id}>
-                            <CartItem img={cat.product.image} name={cat.product.name} quantity={cat.quantity} price={cat.product.price} total={cat.product.price * cat.quantity} />
+                            <CartItem id={index} img={cat.product.image} name={cat.product.name} quantity={cat.quantity} price={cat.product.price} total={cat.product.price * cat.quantity} />
                         </div>
                     })
                 }
