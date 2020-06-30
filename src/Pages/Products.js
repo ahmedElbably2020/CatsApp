@@ -20,7 +20,7 @@ function Products() {
                 {
                     products.map(cat => {
                         return <div className='col-4' key={cat.id}>
-                            <ProductItem img={cat.image} name={cat.name} price={cat.price} />
+                            <ProductItem img={cat.image} name={cat.name} price={cat.price} ProductId={cat.id} />
                         </div>
                     })
                 }
