@@ -60,7 +60,7 @@ function Navbar(props) {
 
 const mapStateToProps = state => {
     return {
-        totalQuantity: state.cart.reduce((acc, item) => acc += item.quantity, 0)
+        totalQuantity: state.cart.reduce((acc, item) => acc += +item.quantity, 0)
     }
 }
 export default connect(mapStateToProps)(Navbar)
