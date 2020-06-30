@@ -5,7 +5,7 @@
 }
 .card a,
 button{
-    background-color: #343a40;
+    background-color: #343a40 !important;
     border: 0
 }
 

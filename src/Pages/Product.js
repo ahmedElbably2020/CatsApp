@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { getById } from '../Api/Products'
+import { connect } from 'react-redux'
+import { add_to_cart } from '../Store/actions'
+import { ADD_TO_CART } from '../Store/actionTypes'
 
 function Product(props) {
 
@@ -16,6 +19,10 @@ function Product(props) {
 
     let handleQuantityChange = e => {
         setQuantity(e.target.value)
+    }
+
+    let addToCart = (product) => {
+        props.add_to_cart(product, quantity)
     }
     return (
 
@@ -37,7 +44,7 @@ function Product(props) {
                             )
                         }
                     </div>
-                    <button className='btn mt-4 text-white'>Add To Cart</button>
+                    <button className='btn mt-4 text-white' onClick={() => addToCart(product)}>Add To Cart</button>
                 </div>
             </div>
         </div>
@@ -45,4 +52,10 @@ function Product(props) {
     )
 }
 
-export default Product
+const mapDispatchToProps = dispatch => {
+    return {
+        add_to_cart: (productInfo, quantity) => dispatch(add_to_cart(productInfo, quantity))
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Product)
