@@ -15,7 +15,7 @@ function ProductItem(props) {
                 <p className="card-text my-1">Price: {price}$</p>
                 <p className="card-text my-1">Quantity: {quantity}</p>
                 <p className="card-text my-1">Total: {total}$</p>
-                <button className="btn text-white mt-2" onClick={() => props.removeFromCart(id)}>
+                <button className="btn text-white mt-2" onClick={() => props.remove_from_cart(id)}>
                     Delete
                     <FontAwesomeIcon icon={faTrash} className='ml-2' />
                 </button>
@@ -25,9 +25,5 @@ function ProductItem(props) {
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        removeFromCart: index => dispatch(remove_from_cart(index))
-    }
-}
-export default connect(null, mapDispatchToProps)(ProductItem)
+
+export default connect(null, { remove_from_cart })(ProductItem)
