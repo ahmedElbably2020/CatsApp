@@ -1,11 +1,17 @@
 import { ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from './actionTypes'
 
-
-export function add_to_cart(productInfo, quantity) {
+function create_add_to_cart(productInfo, quantity) {
     return {
         type: ADD_TO_CART,
         productInfo,
         quantity
+    }
+}
+
+// Uses Redux Thunk
+export function add_to_cart(productInfo, quantity) {
+    return (dispatch) => {
+        dispatch(create_add_to_cart(productInfo, quantity))
     }
 }
 

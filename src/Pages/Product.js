@@ -60,10 +60,6 @@ function Product(props) {
     )
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        add_to_cart: (productInfo, quantity) => dispatch(add_to_cart(productInfo, quantity))
-    }
-}
 
-export default connect(null, mapDispatchToProps)(Product)
+
+export default connect(null, { add_to_cart })(Product)
