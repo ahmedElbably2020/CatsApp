@@ -1,6 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import Reducer from './reducers'
 import thunk from 'redux-thunk'
+import throttle from 'lodash.throttle'
 
 // Load Products Data From Local Storage
 function loadState() {
@@ -30,5 +31,6 @@ const store = createStore(Reducer, loadState(), compose(
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ))
 
-store.subscribe(() => saveState(store.getState()))
+// Not Change The State Before 2s Cross
+store.subscribe(throttle(() => saveState(store.getState()), 2000))
 export default store

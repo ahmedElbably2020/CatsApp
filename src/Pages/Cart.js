@@ -17,7 +17,7 @@ function Products(props) {
             <div className='row'>
                 {allCart.length === 0 ? <div className='badge badge-danger w-75 mx-auto p-3'>Empty Cart</div> : (
                     allCart.map((cat, index) => {
-                        return <div className='col-3' key={cat.product.id}>
+                        return <div className='col-3' key={index}>
                             <CartItem id={index} img={cat.product.image} name={cat.product.name} quantity={cat.quantity} price={cat.product.price} total={cat.product.price * cat.quantity} />
                         </div>
                     })
