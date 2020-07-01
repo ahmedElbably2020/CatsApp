@@ -7,7 +7,7 @@ function Products(props) {
     const { allCart, totalPrice } = props
 
     const clearCart = () => {
-        props.clearCart()
+        props.clear_cart()
     }
 
     return (
@@ -44,11 +44,7 @@ const mapStateToProps = state => {
     }
 }
 
-const mapDispatchToProps = dispatch => {
-    return {
-        clearCart: () => dispatch(clear_cart())
-    }
-}
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Products)
+
+export default connect(mapStateToProps, { clear_cart })(Products)

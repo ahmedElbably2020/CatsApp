@@ -3,9 +3,7 @@ import Reducer from './reducers'
 import thunk from 'redux-thunk'
 
 const initialValues = {
-    cart: [
-
-    ]
+    cart: []
 }
 
 

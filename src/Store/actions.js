@@ -10,7 +10,7 @@ export function add_to_cart(productInfo, quantity) {
 }
 
 
-export function create_remove_from_cart(index) {
+function create_remove_from_cart(index) {
     return {
         type: REMOVE_FROM_CART,
         index
@@ -24,8 +24,15 @@ export function remove_from_cart(index) {
     }
 }
 
-export function clear_cart() {
+function create_clear_cart() {
     return {
         type: CLEAR_CART
+    }
+}
+
+// Uses Redux Thunk
+export function clear_cart() {
+    return (dispatch) => {
+        dispatch(create_clear_cart())
     }
 }
