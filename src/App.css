@@ -2,6 +2,11 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body , html{
+    height: 100vh;
 }
 .card a,
 button{
@@ -38,3 +43,40 @@ button{
     font-size: .8em;
 }
 
+.landing-page{
+    width: 100%;
+    height: 89.5vh;
+    background: url('https://i.ibb.co/FmYyCZK/Pngtree-gray-blue-eyed-plush-cute-kitten-4186117.png') #891cc6;
+    padding: 0 30px;
+    background-repeat: no-repeat;
+    background-position: 100% 35%;
+}
+
+.landing-page::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: #481166;
+    z-index: 1;
+    border-right: 10px solid rgba(0,0,0,.3);
+}
+
+.landing-page > div{
+    z-index: 3;
+}
+.landing-page p{
+    color: #bdbdbd;
+    font-size: .9em;
+}
+
+.landing-page button{
+    width: 150px;
+    background-color: yellow !important;
+}
+/*
+https://i.ibb.co/SVzRKhz/Pngtree-blue-eyes-yellow-plush-cat-4179187.png
+
+*/
