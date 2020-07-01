@@ -9,13 +9,17 @@ function ProductItem(props) {
 
     return (
         <div className="card my-3">
-            <img className="card-img-top" src={img} alt="Card image cap" />
+            <div className='img-container position-relative'>
+                <img className="card-img-top" src={img} alt="Card image cap" />
+            </div>
             <div className="card-body">
                 <h5 className="card-title">{name}</h5>
-                <p className="card-text my-1">Price: {price}$</p>
-                <p className="card-text my-1">Quantity: {quantity}</p>
-                <p className="card-text my-1">Total: {total}$</p>
-                <button className="btn text-white mt-2" onClick={() => props.remove_from_cart(id)}>
+                <div className='card-product-desc'>
+                    <p className="card-text my-1">Price: {price}$</p>
+                    <p className="card-text my-1">Quantity: {quantity}</p>
+                    <p className="card-text my-1 badge badge-info p-2 rounded-pill">Total: {total}$</p>
+                </div>
+                <button className="btn text-white mt-2 rounded-pill px-3" onClick={() => props.remove_from_cart(id)}>
                     Delete
                     <FontAwesomeIcon icon={faTrash} className='ml-2' />
                 </button>

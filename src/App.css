@@ -93,3 +93,7 @@ button{ background-color: #343a40 !important; border: 0 }
 .product-desc{
     font-size: .9em;
 }
+
+.card-product-desc{
+    font-size: .9em;
+}
