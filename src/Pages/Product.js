@@ -31,13 +31,15 @@ function Product(props) {
     }
     return (
 
-        <div className='container mt-4'>
+        <div className='container mt-5'>
             <div className='row'>
-                <img src={product.image} className='col-5' />
+                <div className='col-5'>
+                    <img src={product.image} className='img-fluid' />
+                </div>
                 <div className='col-7'>
                     <h2>{product.name}</h2>
-                    <p className='badge badge-success mt-3 d-inline-block p-2'>Price : {product.price}</p>
-                    <p className='text-muted mt-2'>{product.description}</p>
+                    <p className='badge badge-success rounded-pill mt-3 d-inline-block p-2'>Price : {product.price}</p>
+                    <p className='text-muted mt-2 product-desc'>{product.description}</p>
                     <div className='mt-4 d-flex align-items-center'>
                         Quantity :
                         <input type='number' min='0' className='ml-3' value={quantity} onChange={handleQuantityChange} />
@@ -52,7 +54,7 @@ function Product(props) {
                     {
                         quantityError ? <div className='badge badge-danger w-100 p-3 mt-3'>Please Enter Quantity</div> : null
                     }
-                    <button className='btn mt-4 text-white' onClick={() => addToCart(product)}>Add To Cart</button>
+                    <button className='btn mt-4 text-white rounded-pill addToCart p-2 px-4' onClick={() => addToCart(product)}>Add To Cart</button>
                 </div>
             </div>
         </div>

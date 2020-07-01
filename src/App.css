@@ -85,3 +85,11 @@ button{ background-color: #343a40 !important; border: 0 }
 .landing-page p{ color: #bdbdbd; font-size: .9em }
 
 .landing-page button{ width: 150px; background-color: yellow !important }
+
+.addToCart{
+    background-color: #6f477d !important;
+}
+
+.product-desc{
+    font-size: .9em;
+}
